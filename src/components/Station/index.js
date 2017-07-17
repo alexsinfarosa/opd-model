@@ -1,40 +1,44 @@
-import React, { Component } from "react";
-import { inject, observer } from "mobx-react";
-
-import Select from "antd/lib/select";
-import "antd/lib/select/style/css";
+import React, { Component } from 'react';
+import { inject, observer } from 'mobx-react';
+// import { toJS } from "mobx";
+// import { Select } from "antd";
+import Select from 'antd/lib/select';
+import 'antd/lib/select/style/css';
 const Option = Select.Option;
 
-@inject("store")
+// Utilities
+// import { states } from "../states";
+
+@inject('store')
 @observer
-export default class Station extends Component {
+class State extends Component {
   handleChange = async value => {
     const mobile = this.props.size;
     await this.props.store.app.setStation(value);
-    // this.props.store.app.loadGridData();
-    this.props.store.logic.setIsMap(false);
+    this.props.store.app.setIsMap(false);
 
     if (this.props.store.app.areRequiredFieldsSet && mobile) {
-      this.props.store.logic.setIsSidebarOpen(false);
+      this.props.store.app.setIsSidebarOpen(false);
+      return;
     }
   };
   render() {
-    const { currentStateStations, station } = this.props.store.app;
+    const { getCurrentStateStations, getStation } = this.props.store.app;
 
-    const stationList = currentStateStations.map(station =>
+    const stationList = getCurrentStateStations.map(station =>
       <Option key={`${station.id} ${station.network}`} value={station.name}>
         {station.name}
       </Option>
     );
 
     return (
-      <div style={{ marginBottom: "2rem" }}>
+      <div style={{ marginBottom: '2rem' }}>
         <label>Station:</label>
         <Select
           name="station"
           size="large"
-          value={station.name}
-          placeholder={`Select Station (${currentStateStations.length})`}
+          value={getStation.name}
+          placeholder={`Select Station (${getCurrentStateStations.length})`}
           style={{ width: 200 }}
           onChange={this.handleChange}
         >
@@ -44,3 +48,5 @@ export default class Station extends Component {
     );
   }
 }
+
+export default State;

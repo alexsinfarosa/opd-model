@@ -1,1 +1,1 @@
-NEWA Weed Model
+NEWA Beet Model

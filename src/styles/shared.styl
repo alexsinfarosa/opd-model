@@ -1,4 +1,4 @@
-.table{
+.table {
   text-align: center;
   font-size: .75rem;
 
@@ -13,17 +13,8 @@
   }
 }
 
-.selected {
-  background-color: red;
-}
-
-.ant-table-row {
-  text-align: center;
-}
-
 .ant-table-row:nth-child(even){
     background-color: #F7F7F7;
-
   }
 
 table > .ant-table-thead > tr > th{
@@ -40,51 +31,38 @@ table > .ant-table-thead > tr > th{
     font-size: .45rem;
   }
 }
+.ant-table-row-expand-icon-cell {
 
+}
+
+.ant-table-row-expand-icon {
+
+}
 
 .ant-table-thead > tr > th, .ant-table-tbody > tr > td {
   word-break: normal !important;
 }
-
-.editable-cell {
-  position: relative;
+.low {
+  background: #EEFAE5;
 }
 
-.editable-cell-input-wrapper,
-.editable-cell-text-wrapper {
-  padding-right: 24px;
+.moderate {
+  background: #FDF2DD;
 }
 
-.editable-cell-text-wrapper {
-  padding: 5px 24px 5px 5px;
+.high {
+  background: #FCE2E1;
 }
 
-.editable-cell-icon,
-.editable-cell-icon-check {
-  position: absolute;
-  right: 0;
-  width: 20px;
-  cursor: pointer;
+
+/* use css to set position of modal */
+// Use flex which not working in IE
+.vertical-center-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.editable-cell-icon {
-  line-height: 18px;
-  display: none;
-}
-
-.editable-cell-icon-check {
-  line-height: 28px;
-}
-
-.editable-cell:hover .editable-cell-icon {
-  display: inline-block;
-}
-
-.editable-cell-icon:hover,
-.editable-cell-icon-check:hover {
-  color: #108ee9;
-}
-
-.editable-add-btn {
-  margin-bottom: 8px;
+.vertical-center-modal .ant-modal {
+  top: 0;
 }

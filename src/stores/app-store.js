@@ -1,12 +1,15 @@
 import { observable, action, computed } from "mobx";
-import axios from "axios";
+import { matchIconsToStations } from "utils";
+import { states } from "config/states";
 import format from "date-fns/format";
 
-import { matchIconsToStations } from "utils";
+export default class AppStore {
+  constructor(fetch) {
+    this.fetch = fetch;
+  }
 
-export default class appStore {
+  // logic----------------------------------------------------------------------
   @observable protocol = window.location.protocol;
-  @observable isLoading = false;
   @computed
   get areRequiredFieldsSet() {
     return (
@@ -15,10 +18,35 @@ export default class appStore {
       Object.keys(this.station).length !== 0
     );
   }
+  @observable isVisible = true;
+  @action setIsVisible = () => (this.isVisible = !this.isVisible);
 
-  constructor(fetch) {
-    this.fetch = fetch;
-  }
+  @observable isCollapsed = true;
+  @action setIsCollapsed = d => (this.isCollapsed = !this.isCollapsed);
+
+  @observable isLoading = false;
+  @action setIsLoading = d => (this.isLoading = d);
+
+  @observable
+  isMap = JSON.parse(localStorage.getItem("state")) !== null ? false : true;
+  @action setIsMap = d => (this.isMap = d);
+  @action toggleIsMap = d => (this.isMap = !this.isMap);
+
+  @observable isGraph = false;
+  @action setIsGraph = d => (this.isGraph = !this.isGraph);
+
+  @observable
+  breakpoints = {
+    xs: "(max-width: 767px)",
+    su: "(min-width: 768px)",
+    sm: "(min-width: 768px) and (max-width: 991px)",
+    md: "(min-width: 992px) and (max-width: 1199px)",
+    mu: "(min-width: 992px)",
+    lg: "(min-width: 1200px)"
+  };
+  @observable isSidebarOpen;
+  @action setIsSidebarOpen = d => (this.isSidebarOpen = d);
+  @action toggleSidebar = () => (this.isSidebarOpen = !this.isSidebarOpen);
 
   // Species ------------------------------------------------------------------
   @observable species = [];
@@ -52,30 +80,7 @@ export default class appStore {
     localStorage.setItem(`or-species`, JSON.stringify(this.specie));
   };
 
-  // States -------------------------------------------------------------------
-  @observable states = [];
-
-  @action
-  loadStates() {
-    this.isLoading = true;
-    this.fetch("states.json")
-      .then(json => {
-        this.updateStates(json);
-        this.isLoading = false;
-      })
-      .catch(err => {
-        console.log("Failed to load states", err);
-      });
-  }
-
-  @action
-  updateStates(json) {
-    this.states.clear();
-    json.forEach(stateJson => {
-      this.states.push(stateJson);
-    });
-  }
-
+  // State----------------------------------------------------------------------
   @observable
   state = JSON.parse(localStorage.getItem("state")) || {
     postalCode: "ALL",
@@ -89,66 +94,34 @@ export default class appStore {
   setState = stateName => {
     localStorage.removeItem("state");
     this.station = {};
-    this.state = this.states.find(state => state.name === stateName);
+    this.state = states.find(state => state.name === stateName);
     localStorage.setItem("state", JSON.stringify(this.state));
   };
 
   @action
-  setStateFromMap = d => {
-    this.state = this.states.find(state => state.postalCode === d);
+  setStateFromEntireMap = d => {
+    this.state = states.find(state => state.postalCode === d);
     localStorage.setItem("state", JSON.stringify(this.state));
   };
 
-  // Stations -----------------------------------------------------------------
+  // Station--------------------------------------------------------------------
   @observable stations = [];
-
-  @action
-  loadStations() {
-    this.isLoading = true;
-    return axios
-      .get(
-        `${this.protocol}//newa2.nrcc.cornell.edu/newaUtil/stateStationList/all`
-      )
-      .then(res => {
-        this.updateStations(res.data.stations);
-        this.isLoading = false;
-        // console.log(this.stations.slice());
-      })
-      .catch(err => {
-        console.log("Failed to load stations", err);
-      });
-  }
-
-  @action
-  updateStations(res) {
-    this.stations.clear();
-    res.forEach(station => {
-      this.stations.push(station);
-    });
-  }
-
-  @observable stationsWithIcons = [];
-  @action
-  addIconsToStations() {
-    this.stationsWithIcons.clear();
-    this.stations.forEach(station => {
-      station["icon"] = matchIconsToStations(
-        this.protocol,
-        station,
-        this.state
-      );
-      this.stationsWithIcons.push(station);
-    });
-  }
-
+  @action setStations = d => (this.stations = d);
   @computed
-  get currentStateStations() {
+  get stationsWithMatchedIcons() {
+    return matchIconsToStations(this.protocol, this.stations, this.state);
+  }
+  @computed
+  get getCurrentStateStations() {
     return this.stations.filter(
       station => station.state === this.state.postalCode
     );
   }
-
   @observable station = JSON.parse(localStorage.getItem("station")) || {};
+  @computed
+  get getStation() {
+    return this.station;
+  }
   @action
   setStation = stationName => {
     localStorage.removeItem("station");
@@ -156,15 +129,13 @@ export default class appStore {
     localStorage.setItem("station", JSON.stringify(this.station));
   };
 
-  // Dates---------------------------------------------------------------------
+  // Dates----------------------------------------------------------------------
   @observable currentYear = new Date().getFullYear().toString();
-  @observable
-  endDate = JSON.parse(localStorage.getItem("endDate")) ||
-    format(new Date(), "YYYY-MM-DD");
+  @observable endDate = format(new Date(), "YYYY-MM-DD");
   @action
   setEndDate = d => {
     this.endDate = format(d, "YYYY-MM-DD");
-    localStorage.setItem("endDate", JSON.stringify(this.endDate));
+    // localStorage.setItem("endDate", JSON.stringify(this.endDate));
   };
   @computed
   get startDate() {
@@ -175,6 +146,15 @@ export default class appStore {
     return format(this.endDate, "YYYY");
   }
 
-  // Current Model ------------------------------------------------------------
-  @observable gridData = [];
+  // ACISData ------------------------------------------------------------------
+  @observable ACISData = [];
+  @action
+  setACISData = d => {
+    this.ACISData = d;
+    // this.setCSVData();
+  };
+  @computed
+  get displayPlusButton() {
+    return this.ACISData.filter(e => e.missingDay).length > 0;
+  }
 }

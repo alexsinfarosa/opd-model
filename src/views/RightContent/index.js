@@ -3,7 +3,7 @@ import { inject, observer } from "mobx-react";
 
 // components
 import Map from "components/Map";
-import Model from "model";
+import Opd from "model";
 
 // styled-components
 import { Header, TextIcon, IconStyled, MainContent } from "./styles";
@@ -12,8 +12,13 @@ import { Header, TextIcon, IconStyled, MainContent } from "./styles";
 @observer
 class RightContent extends Component {
   render() {
-    const { state, areRequiredFieldsSet } = this.props.store.app;
-    const { isMap, toggleSidebar } = this.props.store.logic;
+    const {
+      areRequiredFieldsSet,
+      isMap,
+      toggleSidebar,
+      specie,
+      state
+    } = this.props.store.app;
     return (
       <div
         style={{ display: "flex", flexDirection: "column", height: "100vh" }}
@@ -48,7 +53,7 @@ class RightContent extends Component {
             </h3>}
           <br />
           {isMap && <Map {...this.props} />}
-          {/* {areRequiredFieldsSet && <Model {...this.props} />} */}
+          {areRequiredFieldsSet && <Opd />}
         </MainContent>
       </div>
     );

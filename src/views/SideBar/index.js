@@ -1,19 +1,24 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 
+// antd
+// import Switch from "antd/lib/switch";
+// import "antd/lib/switch/style/css";
+
 import Button from "antd/lib/button";
 import "antd/lib/button/style/css";
 
 // components
-import Specie from "components/Specie";
+import Subject from "components/Subject";
 import State from "components/State";
 import Station from "components/Station";
 import DatePicker from "components/DatePicker";
+import Acknowledgements from "components/Acknowledgements";
 
-import { Box } from "reflexbox";
+import { Flex, Box } from "reflexbox";
 
 // styled-components
-import { SideBarContent } from "./styles";
+import { SideBarContent, RiskLevel } from "./styles";
 
 @inject("store")
 @observer
@@ -21,19 +26,18 @@ class SideBar extends Component {
   // toggle Map component
   toggleMap = () => {
     // console.log(`switch to ${checked}`);
-    this.props.store.logic.toggleMap();
-    this.props.store.logic.setIsSidebarOpen(false);
+    this.props.store.app.toggleIsMap();
+    this.props.store.app.setIsSidebarOpen(false);
   };
 
-  toggleTable = () => {
+  toggleGraph = () => {
     // console.log(`switch to ${checked}`);
-    this.props.store.logic.setIsTable();
-    this.props.store.logic.setIsSidebarOpen(false);
+    this.props.store.app.setIsGraph();
+    this.props.store.app.setIsSidebarOpen(false);
   };
 
   render() {
-    const { specie } = this.props.store.app;
-    const { isGraph, isMap, isTable } = this.props.store.logic;
+    const { specie, isGraph, isMap } = this.props.store.app;
     return (
       <SideBarContent>
         <Box mb={2} style={{ textAlign: "center", letterSpacing: "1px" }}>
@@ -47,11 +51,9 @@ class SideBar extends Component {
             </a>
           </h3>
         </Box>
-
         <hr />
         <br />
-
-        <Specie size={this.props.size} />
+        <Subject size={this.props.size} />
         <State size={this.props.size} />
         <Station size={this.props.size} />
         <DatePicker size={this.props.size} />
@@ -62,18 +64,13 @@ class SideBar extends Component {
           </Button>
         </Box>
 
-        <Box mb={2} mt={2}>
-          <Button size="large" icon="layout" onClick={this.toggleTable}>
-            {isTable ? "Hide Table" : "Display Table"}
+        <Box>
+          <Button size="large" icon="bar-chart" onClick={this.toggleGraph}>
+            {isGraph ? "Hide Graph" : "Display Graph"}
           </Button>
         </Box>
 
-        {specie.graph &&
-          <Box>
-            <Button size="large" icon="bar-chart" onClick={this.toggleGraph}>
-              {isGraph ? "Hide Graph" : "Display Graph"}
-            </Button>
-          </Box>}
+        <Acknowledgements />
       </SideBarContent>
     );
   }

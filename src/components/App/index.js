@@ -4,26 +4,33 @@ import { when } from "mobx";
 
 // components
 import Home from "views/Home";
-// import Test from "components/Test";
+import Test from "components/Test";
+
+// api
+import { fetchAllStations } from "utils/api";
 
 @inject("store")
 @observer
 class App extends Component {
   constructor(props) {
     super(props);
+    const protocol = this.props.store.app.protocol;
     when(
+      // once...
       () => this.props.store.app.stations.length === 0,
+      // ... then
       () =>
-        this.props.store.app
-          .loadStations()
-          .then(() => this.props.store.app.addIconsToStations())
+        fetchAllStations(protocol).then(allStations =>
+          this.props.store.app.setStations(allStations)
+        )
     );
   }
+
   render() {
     return (
       <div>
         <Home />
-        {/* <Test /> */}
+        <Test />
       </div>
     );
   }

@@ -1,23 +1,37 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
-
+import { when } from "mobx";
+// import { DatePicker } from "antd";
 import DatePicker from "antd/lib/date-picker";
 import "antd/lib/date-picker/style/css";
 import moment from "moment";
 
 @inject("store")
 @observer
-export default class Datepicker extends Component {
+class Subject extends Component {
+  constructor(props) {
+    super(props);
+    when(
+      () => this.props.store.app.endDate === null,
+      () => this.props.store.app.setEndDate(moment())
+    );
+  }
+
   onChange = (date, dateString) => {
     const { areRequiredFieldsSet } = this.props.store.app;
     const mobile = this.props.size;
+    // console.log(date, dateString);
     this.props.store.app.setEndDate(dateString);
-    this.props.store.app.loadGridData();
-    this.props.store.logic.setIsMap(false);
     if (areRequiredFieldsSet && mobile) {
-      this.props.store.logic.setIsSidebarOpen(false);
+      console.log("inside DatePicker");
+      this.props.store.app.setIsSidebarOpen(false);
+      return;
     }
-    this.props.store.logic.setIsRowSelected(false);
+  };
+
+  disabledDate = current => {
+    // Can not select days after today
+    return current.valueOf() > Date.now();
   };
 
   render() {
@@ -25,6 +39,7 @@ export default class Datepicker extends Component {
     return (
       <div style={{ marginBottom: "2rem" }}>
         <label>Date:</label>
+        <div><small>Start Date: January 1st</small></div>
 
         <DatePicker
           style={{ width: 200 }}
@@ -32,9 +47,12 @@ export default class Datepicker extends Component {
           allowClear={false}
           value={moment(endDate)}
           format="MMM DD YYYY"
-          onChange={(date, dateString) => this.onChange(date, dateString)}
+          onChange={this.onChange}
+          disabledDate={this.disabledDate}
         />
       </div>
     );
   }
 }
+
+export default Subject;

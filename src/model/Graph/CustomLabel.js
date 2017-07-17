@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-export default class CustomLabels extends Component {
+export default class CustomLabel extends Component {
   render() {
     const { x, y, payload } = this.props;
     return (
@@ -12,7 +12,7 @@ export default class CustomLabels extends Component {
           fontSize={10}
           textAnchor="end"
           fill="#666"
-          transform="rotate(-45)"
+          transform="rotate(-20)"
         >
           {payload.value}
         </text>

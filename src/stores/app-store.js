@@ -151,10 +151,28 @@ export default class AppStore {
   @action
   setACISData = d => {
     this.ACISData = d;
-    // this.setCSVData();
+    this.setCSVData();
   };
   @computed
   get displayPlusButton() {
     return this.ACISData.filter(e => e.missingDay).length > 0;
+  }
+
+  @observable CSVData = [];
+  @action
+  setCSVData() {
+    this.CSVData.clear();
+    this.ACISData.forEach(obj => {
+      const picked = (({ date, dd, cdd, Tmin, Tmax, Tavg, base }) => ({
+        date,
+        dd,
+        cdd,
+        Tmin,
+        Tmax,
+        Tavg,
+        base
+      }))(obj);
+      this.CSVData.push(picked);
+    });
   }
 }

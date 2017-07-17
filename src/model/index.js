@@ -23,13 +23,14 @@ import Spin from "antd/lib/spin";
 import "antd/lib/spin/style/css";
 
 import Graph from "./Graph";
+import Stage from "components/Stage";
 
 @inject("store")
 @observer
 export default class Opd extends Component {
   constructor(props) {
     super(props);
-    // this.props.store.app.setCSVData();
+    this.props.store.app.setCSVData();
   }
   render() {
     const {
@@ -40,7 +41,7 @@ export default class Opd extends Component {
       displayPlusButton,
       state,
       isLoading,
-      // CSVData,
+      CSVData,
       specie,
       endDate,
       startDateYear,
@@ -231,23 +232,9 @@ export default class Opd extends Component {
                       }
                     />}
               </Box>
-
-              {/* <Box mt={2} col={12} lg={8} md={10} sm={11}>
-                <Table
-                  bordered
-                  size={mobile ? "small" : "middle"}
-                  columns={pest}
-                  rowKey={record => record}
-                  loading={ACISData.length === 0}
-                  pagination={false}
-                  dataSource={areRequiredFieldsSet ? stage() : null}
-                />
-              </Box> */}
             </Flex>
 
-            <Flex mt={2} justify="center" align="baseline">
-              {/* <Box style={{ background: "pink" }}> */}
-
+            <Flex mt={2} justify="space-between" align="baseline">
               <Box>
                 <a
                   target="_blank"
@@ -258,19 +245,40 @@ export default class Opd extends Component {
                 </a>
               </Box>
 
-              {/* <Box ml={2}>
+              <Box ml={2}>
                 <Button type="secondary" icon="download">
                   <CSVButton
                     data={CSVData.slice()}
-                    filename={"blueberryMaggotModel.csv"}
+                    filename={"ornamentalPestModel.csv"}
                     target="_blank"
                   >
                     Download CSV
                   </CSVButton>
                 </Button>
-              </Box> */}
+              </Box>
+            </Flex>
 
-              {/* </Box> */}
+            <Flex column>
+              <Flex mt={2} justify="center">
+                <Stage />
+              </Flex>
+              <Flex mt={2} mb={2} justify="center">
+                The phenological stage above is estimated. Select the actual
+                stage and the model will ricalculate recommendation
+              </Flex>
+              <Flex>
+                {/* <Box mt={2} col={12} lg={8} md={10} sm={11}>
+                <Table
+                  bordered
+                  size={mobile ? "small" : "middle"}
+                  columns={pest}
+                  rowKey={record => record}
+                  loading={ACISData.length === 0}
+                  pagination={false}
+                  dataSource={areRequiredFieldsSet ? stage() : null}
+                />
+              </Box> */}
+              </Flex>
             </Flex>
 
             <Flex mt={2} mb={2}>

@@ -1,6 +1,6 @@
 import format from "date-fns/format";
 import addDays from "date-fns/add_days";
-import isAfter from "date-fns/is_after";
+// import isAfter from "date-fns/is_after";
 
 // table for the beet model
 // import { table } from "config/table";
@@ -533,7 +533,7 @@ export const getData = async (
 
     // date to display in tables
     let dateTable = format(day.date, "MMM D");
-    const today = new Date();
+    // const today = new Date();
     // if (isAfter(day.date, today)) {
     //   dateTable = `${dateTable} - Forecast`;
     // }
@@ -582,6 +582,6 @@ export const getData = async (
       results[i]["cumulativeMissingDays"] = cumulativeMissingDays;
     }
   }
-  console.log(results[0]);
+  // console.log(results[0]);
   return results;
 };

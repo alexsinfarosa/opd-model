@@ -151,6 +151,7 @@ export default class AppStore {
   @action
   setACISData = d => {
     this.ACISData = d;
+    this.setStage();
     this.setCSVData();
   };
   @computed
@@ -175,4 +176,32 @@ export default class AppStore {
       this.CSVData.push(picked);
     });
   }
+
+  // Stage ------------------------------------------------------------------
+  @computed
+  get stages() {
+    return this.specie.stages;
+  }
+
+  @observable stage = [];
+
+  @action
+  setStage() {
+    this.stage.clear();
+    const selectedDate = this.ACISData.find(o => o.date === this.endDate);
+    if (selectedDate) {
+      const cdd = selectedDate.cdd;
+      this.stages.forEach(stage => {
+        if (cdd >= stage.ddlo && cdd <= stage.dhi) {
+          this.stage.push(stage);
+        }
+      });
+    }
+  }
+
+  @action
+  updateStage = d => {
+    const userSelectedStage = this.stages.find(stage => stage.name === d);
+    this.stage = [userSelectedStage];
+  };
 }

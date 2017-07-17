@@ -16,7 +16,6 @@ class RightContent extends Component {
       areRequiredFieldsSet,
       isMap,
       toggleSidebar,
-      specie,
       state
     } = this.props.store.app;
     return (

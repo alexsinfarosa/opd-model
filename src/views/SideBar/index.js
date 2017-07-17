@@ -15,10 +15,10 @@ import Station from "components/Station";
 import DatePicker from "components/DatePicker";
 import Acknowledgements from "components/Acknowledgements";
 
-import { Flex, Box } from "reflexbox";
+import { Box } from "reflexbox";
 
 // styled-components
-import { SideBarContent, RiskLevel } from "./styles";
+import { SideBarContent } from "./styles";
 
 @inject("store")
 @observer
@@ -37,7 +37,7 @@ class SideBar extends Component {
   };
 
   render() {
-    const { specie, isGraph, isMap } = this.props.store.app;
+    const { isGraph, isMap } = this.props.store.app;
     return (
       <SideBarContent>
         <Box mb={2} style={{ textAlign: "center", letterSpacing: "1px" }}>

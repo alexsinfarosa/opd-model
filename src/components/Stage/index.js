@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
+// import { toJS } from "mobx";
 // import { Select } from "antd";
 import Select from "antd/lib/select";
 import "antd/lib/select/style/css";
@@ -11,26 +12,38 @@ import { Box } from "reflexbox";
 @inject("store")
 @observer
 class Stage extends Component {
-  handleChange = value => {};
+  constructor(props) {
+    super(props);
+
+    this.props.store.app.setStage();
+  }
+  handleChange = stageName => {
+    this.props.store.app.updateStage(stageName);
+  };
+
   render() {
-    const { specie, species } = this.props.store.app;
-    const specieList = species.map(specie =>
-      <Option key={specie.formalName} value={specie.informalName}>
-        {specie.informalName}
+    const { stages, stage } = this.props.store.app;
+    const selectedStage = stage.slice()[0];
+    console.log(selectedStage);
+
+    const stageList = stages.map((stage, i) =>
+      <Option key={i} value={stage.name}>
+        {stage.name}
       </Option>
     );
+
     return (
       <Box>
         <label>Phenological Stage </label>
         <Select
           name="stage"
           size="large"
-          value={specie.informalName}
+          value={selectedStage ? selectedStage.name : "Calculating stage..."}
           placeholder="Select Phenological Stage"
           style={{ width: 200 }}
           onChange={this.handleChange}
         >
-          {specieList}
+          {stageList}
         </Select>
       </Box>
     );

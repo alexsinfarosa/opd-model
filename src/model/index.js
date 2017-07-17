@@ -3,7 +3,7 @@ import { inject, observer } from "mobx-react";
 import takeRight from "lodash/takeRight";
 import format from "date-fns/format";
 import isAfter from "date-fns/is_after";
-import isWithinRange from "date-fns/is_within_range";
+// import isWithinRange from "date-fns/is_within_range";
 // import { CSVLink } from 'react-csv';
 
 //  reflexbox
@@ -45,7 +45,8 @@ export default class Opd extends Component {
       specie,
       endDate,
       startDateYear,
-      currentYear
+      currentYear,
+      stage
     } = this.props.store.app;
     const { mobile } = this.props;
 
@@ -266,18 +267,18 @@ export default class Opd extends Component {
                 The phenological stage above is estimated. Select the actual
                 stage and the model will ricalculate recommendation
               </Flex>
-              <Flex>
-                {/* <Box mt={2} col={12} lg={8} md={10} sm={11}>
-                <Table
-                  bordered
-                  size={mobile ? "small" : "middle"}
-                  columns={pest}
-                  rowKey={record => record}
-                  loading={ACISData.length === 0}
-                  pagination={false}
-                  dataSource={areRequiredFieldsSet ? stage() : null}
-                />
-              </Box> */}
+              <Flex justify="center">
+                <Box mt={2} col={12} lg={8} md={10} sm={11}>
+                  <Table
+                    bordered
+                    size={mobile ? "small" : "middle"}
+                    columns={pest}
+                    rowKey={record => record}
+                    loading={ACISData.length === 0}
+                    pagination={false}
+                    dataSource={areRequiredFieldsSet ? stage.slice() : null}
+                  />
+                </Box>
               </Flex>
             </Flex>
 

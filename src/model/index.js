@@ -191,12 +191,13 @@ export default class Opd extends Component {
               </Box>
             </Flex>
 
-            <Flex mt={1} justify="center">
+            <Flex mt={1} justify="center" align="baseline">
               {!isLoading
                 ? <Box>
                     <h3>
                       Accumulated degree days (base 50°F) from 01/01/{startDateYear}{" "}
-                      through {format(endDate, "MM/DD/YYYY")}: {todayCDD()}
+                      through {format(endDate, "MM/DD/YYYY")}:{" "}
+                      <span style={{ color: "#FF934F" }}>{todayCDD()}</span>
                       {missingDays() !== undefined &&
                         <small>
                           {" "}({` ${missingDays()}`} days missing )
@@ -265,10 +266,10 @@ export default class Opd extends Component {
               </Flex>
               <Flex mt={2} mb={2} justify="center">
                 The phenological stage above is estimated. Select the actual
-                stage and the model will ricalculate recommendation
+                stage and the model will ricalculate recommendation.
               </Flex>
               <Flex justify="center">
-                <Box mt={2} col={12} lg={8} md={10} sm={11}>
+                <Box mt={2} mb={2} col={12} lg={12} md={12} sm={12}>
                   <Table
                     bordered
                     size={mobile ? "small" : "middle"}

@@ -247,17 +247,18 @@ export default class Opd extends Component {
                 </a>
               </Box>
 
-              <Box ml={2}>
-                <Button type="secondary" icon="download">
-                  <CSVButton
-                    data={CSVData.slice()}
-                    filename={"ornamentalPestModel.csv"}
-                    target="_blank"
-                  >
-                    Download CSV
-                  </CSVButton>
-                </Button>
-              </Box>
+              {!mobile &&
+                <Box ml={2}>
+                  <Button type="secondary" icon="download">
+                    <CSVButton
+                      data={CSVData.slice()}
+                      filename={"ornamentalPestModel.csv"}
+                      target="_blank"
+                    >
+                      Download CSV
+                    </CSVButton>
+                  </Button>
+                </Box>}
             </Flex>
 
             <Flex column>

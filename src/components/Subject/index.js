@@ -14,7 +14,7 @@ export default class Specie extends Component {
     const mobile = this.props.size;
     this.props.store.app.setSpecie(value);
     if (areRequiredFieldsSet && mobile) {
-      this.props.store.logic.setIsSidebarOpen(false);
+      this.props.store.app.setIsSidebarOpen(false);
     }
     this.props.store.app.setStage();
   };

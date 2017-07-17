@@ -190,7 +190,6 @@ export default class AppStore {
   setStage() {
     this.stage.clear();
     const { stages } = this.specie;
-    console.log(stages.slice());
     const selectedDate = this.ACISData.find(o => o.date === this.endDate);
     if (selectedDate) {
       const cdd = selectedDate.cdd;
@@ -207,7 +206,6 @@ export default class AppStore {
     this.stage.clear();
     const { stages } = this.specie;
     const userSelectedStage = stages.slice().find(stage => stage.name === d);
-    console.log(userSelectedStage);
     this.stage = [userSelectedStage];
   };
 }

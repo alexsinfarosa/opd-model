@@ -128,5 +128,155 @@
         "biologicalControl": "None"
       }
     ]
+  },
+  {
+    "id": 3,
+    "formalName": "Mindarus abietinus",
+    "informalName": "Balsam twig aphid",
+    "hosts": "Fir",
+    "biofixPhenology": "March 1",
+    "baseTemp": 50,
+    "stages": [
+      {
+        "name": "Eggs",
+        "status": "Overwinters as egg",
+        "ddlo": 0,
+        "ddhi": 29,
+        "phenologicalMarkers": "None",
+        "scouting": "Scout for overwintering eggs before buds swell",
+        "management": "Do not apply nitrogen to infested trees before bud break. If severe issues with balsam twig aphid, plant species with later bud break.  Canaan is later than Fraser which is later than balsam, in general",
+        "biologicalControl": "None"
+      },
+      {
+        "name": "Stem mothers/nymphs",
+        "status": "Overwintering eggs hatch to stem mothers, which produce nymphs",
+        "ddlo": 30,
+        "ddhi": 100,
+        "phenologicalMarkers": "Buds swelling and just opening. Silver maple, red maple",
+        "scouting": "Evaluate population by tapping branches over dark colored surface.  Also scout for beneficial insects and mites.",
+        "management": "Pesticide application if necessary.  Threshold is 3 aphids per tree. Control is most important in last 2 years before harvest, unless damage is excessive prior to that.  Apply pesticide on warm day before budcap loosens.",
+        "biologicalControl": "Predators include ladybeetle adults and larvae, lacewings, ants, hover fly larvae, syrphid flies and yellow jackets.  Pesticide applications may affect beneficial insects."
+      },
+      {
+        "name": "Nymphs/adults",
+        "status": "3-4 generation per year. Nymphs and adults feed on tree but only feeding during needle development causes twisting",
+        "ddlo": 101,
+        "ddhi": 2499,
+        "phenologicalMarkers": "None",
+        "scouting": "Scout for twisted needles, honeydew (indicated by presence of bees, wasps and ants) and insects to determine trees to treat next year.",
+        "management": "Pick and destroy young cones where aphids may hide.",
+        "biologicalControl": "Predators include ladybeetle adults and larvae, lacewings, ants, hover fly larvae, syrphid flies and yellow jackets.  Pesticide applications may affect beneficial insects."
+      },
+      {
+        "name": "Winged adults",
+        "status": "Lay overwintering eggs",
+        "ddlo": 2500,
+        "ddhi": 3500,
+        "phenologicalMarkers": "None",
+        "scouting": "None",
+        "management": "If severe issues with balsam twig aphid, plant species with later bud break.  Canaan is later than Fraser which is later than balsam, in general",
+        "biologicalControl": "None"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "formalName": "Contarinia pseudotsugae",
+    "informalName": "Douglas fir needle midge",
+    "hosts": "Douglas-fir",
+    "biofixPhenology": "March 1",
+    "baseTemp": 50,
+    "stages": [
+      {
+        "name": "Overwinter as larvae",
+        "status": "Larvae pupate in the soil beneath infested trees",
+        "ddlo": 0,
+        "ddhi": 199,
+        "phenologicalMarkers": "None",
+        "scouting": "Place at least 3 traps per field on the north side of previously infested trees before the daily temperature reaches 60F for several days. Check traps daily and continue until no midges are caught for several days.",
+        "management": "Plant varieties with later bud break. Remove overgrown trees from the plantation as damage can be more severe on older trees.",
+        "biologicalControl": "None"
+      },
+      {
+        "name": "Adult",
+        "status": "Adult midges emerge from the soil beneath trees.",
+        "ddlo": 200,
+        "ddhi": 400,
+        "phenologicalMarkers": "Redbud flowering, Tatarian honeysuckle flowering",
+        "scouting": "Check traps daily and continue until no midges are caught for several days.",
+        "management": "Pesticide application is based on collection of adults in traps as chemicals are only effective against adults. The first application should be made as soon as first adults are noted.  A second application may be applied if adults continue to emerge.",
+        "biologicalControl": "Parasitic chalcid wasps are tiny.  They may be affected by pesticide applications."
+      },
+      {
+        "name": "Larvae",
+        "status": "Eggs hatch to larvae which bore into, and feed on, needles, causing small swollen galls",
+        "ddlo": 401,
+        "ddhi": 3500,
+        "phenologicalMarkers": "None",
+        "scouting": "August - Scout for swollen galls on needles.  Needles may yellow and bend at gall. Mark trees for traps in the spring.",
+        "management": "Remove heavily infested trees before larvae leave the needles in late fall.  Plant varieties with later bud break. Remove overgrown trees from the plantation as damage can be more severe on older trees.",
+        "biologicalControl": "Parasitic chalcid wasps are tiny.  "
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "formalName": "Fiorina externa",
+    "informalName": "Elongate hemlock scale",
+    "hosts": "Fir, sometimes spruce, Douglas fir, pine",
+    "biofixPhenology": "March 1",
+    "baseTemp": 50,
+    "stages": [
+      {
+        "name": "Adult",
+        "status": "Overwinter as various stages, including adults",
+        "ddlo": 0,
+        "ddhi": 6,
+        "phenologicalMarkers": "None",
+        "scouting": "Scout underside of needles for scale.  Mark trees for later scouting for crawlers. If only a few trees are infested, consider removing them - tarped so scale is not spread.  Yellos sticky cards can be used to trap males to indicate when eggs are being laid.",
+        "management": " Remove hemlocks near plantation that can act as reservoirs. Space trees at planting to minimize movement from tree to tree. Remove weeds to expose lower branches to allow scouting and coverage with pesticides.  Butt pruning can remove heavily infested lower branches.Limit preseason use of nitrogen fertilizers as they increase survival and rate of development.",
+        "biologicalControl": "None"
+      },
+      {
+        "name": "Adults/egg/crawler",
+        "status": "Adults produce eggs that hatch to crawlers.",
+        "ddlo": 7,
+        "ddhi": 120,
+        "phenologicalMarkers": "Silver maple blooming",
+        "scouting": "Scout trees for crawler emergence. No specific thresholds have been determined.",
+        "management": "Dormant  treatment if necessary.",
+        "biologicalControl": "Lady beetles, lacewings and parasitic wasps.  Pesticide use may affect beneficial insects."
+      },
+      {
+        "name": "Unknown...",
+        "status": "Crawlers are produced over a long period.",
+        "ddlo": 121,
+        "ddhi": 359,
+        "phenologicalMarkers": "Japanese quince blooming.",
+        "scouting": "Scout trees for crawler emergence. No specific thresholds have been determined.",
+        "management": "None",
+        "biologicalControl": "Lady beetles, lacewings and parasitic wasps.  "
+      },
+      {
+        "name": "Crawler",
+        "status": "Crawlers are produced over a long period.",
+        "ddlo": 360,
+        "ddhi": 699,
+        "phenologicalMarkers": "Tatarian honeysuckle, beauty bush, ninebark blooming",
+        "scouting": "Scout trees for crawler emergence. No specific thresholds have been determined.",
+        "management": "Pesticide applications if necessary.  Clean equipment between fields to prevent spread and always work from least infested to most infested areas.",
+        "biologicalControl": "Lady beetles, lacewings and parasitic wasps.  Pesticide use may affect beneficial insects."
+      },
+      {
+        "name": "Adult",
+        "status": "Ovewintering stages develop.",
+        "ddlo": 700,
+        "ddhi": 3500,
+        "phenologicalMarkers": "None",
+        "scouting": "Spruce - scout for brown galls to mark trees to scout. Douglas fir - Scout for egg masses under waxy mass on outer growth.",
+        "management": "Do not fertilize infested trees.",
+        "biologicalControl": "None"
+      }
+    ]
   }
 ]

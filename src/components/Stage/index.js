@@ -24,7 +24,6 @@ class Stage extends Component {
   render() {
     const { stages, stage } = this.props.store.app;
     const selectedStage = stage.slice()[0];
-    console.log(selectedStage);
 
     const stageList = stages.map((stage, i) =>
       <Option key={i} value={stage.name}>

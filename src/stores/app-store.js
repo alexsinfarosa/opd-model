@@ -150,6 +150,7 @@ export default class AppStore {
   @observable ACISData = [];
   @action
   setACISData = d => {
+    // this.ACISData.clear();
     this.ACISData = d;
     this.setStage();
     this.setCSVData();
@@ -188,11 +189,13 @@ export default class AppStore {
   @action
   setStage() {
     this.stage.clear();
+    const { stages } = this.specie;
+    console.log(stages.slice());
     const selectedDate = this.ACISData.find(o => o.date === this.endDate);
     if (selectedDate) {
       const cdd = selectedDate.cdd;
-      this.stages.forEach(stage => {
-        if (cdd >= stage.ddlo && cdd <= stage.dhi) {
+      stages.slice().forEach(stage => {
+        if (cdd >= stage.ddlo && cdd <= stage.ddhi) {
           this.stage.push(stage);
         }
       });
@@ -201,7 +204,10 @@ export default class AppStore {
 
   @action
   updateStage = d => {
-    const userSelectedStage = this.stages.find(stage => stage.name === d);
+    this.stage.clear();
+    const { stages } = this.specie;
+    const userSelectedStage = stages.slice().find(stage => stage.name === d);
+    console.log(userSelectedStage);
     this.stage = [userSelectedStage];
   };
 }

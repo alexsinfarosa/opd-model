@@ -58,7 +58,7 @@
     "baseTemp": 50,
     "stages": [
       {
-        "name": "Egg",
+        "name": "Egg (phase 1)",
         "status": "Overwinters as egg under bud scales and at base of needles",
         "ddlo": 0,
         "ddhi": 6,
@@ -68,7 +68,7 @@
         "biologicalControl": "None"
       },
       {
-        "name": "Egg",
+        "name": "Egg (phase 2)",
         "status": "Overwintering eggs hatch",
         "ddlo": 7,
         "ddhi": 121,
@@ -78,7 +78,7 @@
         "biologicalControl": "Predator mites, lacewing larvae, lady beeltes, hover fly larvae"
       },
       {
-        "name": "Nymph/adult",
+        "name": "Nymph/adult (phase 1)",
         "status": "Nymphs and adults active, many generations per season",
         "ddlo": 122,
         "ddhi": 191,
@@ -88,7 +88,7 @@
         "biologicalControl": "Predator mites, lacewing larvae, lady beeltes, hover fly larvae"
       },
       {
-        "name": "Nymph/adult",
+        "name": "Nymph/adult (phase 2)",
         "status": "Peak activity for nymphs and adults ",
         "ddlo": 192,
         "ddhi": 363,
@@ -98,7 +98,7 @@
         "biologicalControl": "Predator mites, lacewing larvae, lady beeltes, hover fly larvae"
       },
       {
-        "name": "Nymph/adult",
+        "name": "Nymph/adult (phase 3)",
         "status": "Nymphs and adults less active",
         "ddlo": 364,
         "ddhi": 2375,
@@ -108,7 +108,7 @@
         "biologicalControl": "Predatory mites"
       },
       {
-        "name": "Nymph/adult",
+        "name": "Nymph/adult (phase 4)",
         "status": "Peak activity for nymphs and adults ",
         "ddlo": 2376,
         "ddhi": 2806,

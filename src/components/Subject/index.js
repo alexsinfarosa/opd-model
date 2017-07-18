@@ -31,13 +31,13 @@ export default class Specie extends Component {
     });
     return (
       <div style={{ marginBottom: "2rem" }}>
-        <label>Specie:</label>
+        <label>Pest:</label>
         <Select
           name="specie"
           size="large"
           autoFocus
           value={specie.informalName}
-          placeholder="Select Specie"
+          placeholder="Select Pest"
           style={{ width: 200 }}
           onChange={this.handleChange}
         >

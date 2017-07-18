@@ -154,18 +154,33 @@ export default class Opd extends Component {
       }
     ];
 
-    const pest = [
+    const pestAbove = [
       {
-        title: "Pest Status",
+        title: "Status",
         className: "table",
         dataIndex: "status",
-        key: "status"
+        width: "50%"
       },
       {
-        title: "Pest Management",
+        title: "Management",
         className: "table",
         dataIndex: "management",
-        key: "management"
+        width: "50%"
+      }
+    ];
+
+    const pestBelow = [
+      {
+        title: "Scouting",
+        className: "table",
+        dataIndex: "scouting",
+        width: "50%"
+      },
+      {
+        title: "Phenological Markers",
+        className: "table",
+        dataIndex: "phenologicalMarkers",
+        width: "50%"
       }
     ];
 
@@ -269,12 +284,27 @@ export default class Opd extends Component {
                 The phenological stage above is estimated. Select the actual
                 stage and the model will ricalculate recommendation.
               </Flex>
+
               <Flex justify="center">
                 <Box mt={2} mb={2} col={12} lg={12} md={12} sm={12}>
                   <Table
                     bordered
                     size={mobile ? "small" : "middle"}
-                    columns={pest}
+                    columns={pestAbove}
+                    rowKey={record => record}
+                    loading={ACISData.length === 0}
+                    pagination={false}
+                    dataSource={areRequiredFieldsSet ? stage.slice() : null}
+                  />
+                </Box>
+              </Flex>
+
+              <Flex justify="center">
+                <Box mt={2} mb={2} col={12} lg={12} md={12} sm={12}>
+                  <Table
+                    bordered
+                    size={mobile ? "small" : "middle"}
+                    columns={pestBelow}
                     rowKey={record => record}
                     loading={ACISData.length === 0}
                     pagination={false}

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
-// import { toJS } from "mobx";
+import { toJS } from "mobx";
 
 import Select from "antd/lib/select";
 import "antd/lib/select/style/css";
@@ -13,6 +13,10 @@ export default class Specie extends Component {
     const { areRequiredFieldsSet } = this.props.store.app;
     const mobile = this.props.size;
     this.props.store.app.setSpecie(value);
+    if (areRequiredFieldsSet) {
+      this.props.store.app.setIsMap(false);
+    }
+
     if (areRequiredFieldsSet && mobile) {
       this.props.store.app.setIsSidebarOpen(false);
     }
@@ -21,7 +25,7 @@ export default class Specie extends Component {
 
   render() {
     const { specie, species } = this.props.store.app;
-
+    const pest = toJS(specie);
     const speciesList = species.map((specie, i) => {
       return (
         <Option key={i} value={specie.informalName}>
@@ -36,7 +40,7 @@ export default class Specie extends Component {
           name="specie"
           size="large"
           autoFocus
-          value={specie.informalName}
+          value={pest.informalName}
           placeholder="Select Pest"
           style={{ width: 200 }}
           onChange={this.handleChange}

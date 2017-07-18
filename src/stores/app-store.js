@@ -57,6 +57,8 @@ export default class AppStore {
     this.fetch("species.json")
       .then(json => {
         this.updateSpecies(json);
+        console.log(json[0]);
+        this.setFirstPest(json[0]);
         this.isLoading = false;
       })
       .catch(err => {
@@ -72,7 +74,11 @@ export default class AppStore {
     });
   }
 
-  @observable specie = JSON.parse(localStorage.getItem("or-species")) || {};
+  @observable firstPest = {};
+  @action setFirstPest = d => (this.firstPest = d);
+
+  @observable
+  specie = JSON.parse(localStorage.getItem("or-species")) || this.firstPest;
   @action
   setSpecie = d => {
     localStorage.removeItem("or-species");

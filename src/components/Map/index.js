@@ -31,7 +31,10 @@ export default class TheMap extends Component {
     if (state.name === "All States") {
       this.props.store.app.setStateFromEntireMap(selectedStation.state);
       this.props.store.app.setStation(selectedStation.name);
-      this.props.store.app.setIsMap(false);
+      if (this.props.store.app.areRequiredFieldsSet) {
+        this.props.store.app.setIsMap(false);
+        return;
+      }
       return;
     }
 

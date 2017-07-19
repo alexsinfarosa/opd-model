@@ -10,14 +10,14 @@ const Option = Select.Option;
 @observer
 export default class Specie extends Component {
   handleChange = value => {
-    const { areRequiredFieldsSet } = this.props.store.app;
     const mobile = this.props.size;
     this.props.store.app.setSpecie(value);
-    if (areRequiredFieldsSet) {
+
+    if (this.props.store.app.areRequiredFieldsSet) {
       this.props.store.app.setIsMap(false);
     }
 
-    if (areRequiredFieldsSet && mobile) {
+    if (this.props.store.app.areRequiredFieldsSet && mobile) {
       this.props.store.app.setIsSidebarOpen(false);
     }
     this.props.store.app.setStage();

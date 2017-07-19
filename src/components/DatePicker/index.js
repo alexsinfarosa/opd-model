@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import { when } from "mobx";
+import format from "date-fns/format";
+
 // import { DatePicker } from "antd";
 import DatePicker from "antd/lib/date-picker";
 import "antd/lib/date-picker/style/css";
@@ -35,11 +37,16 @@ class Subject extends Component {
   };
 
   render() {
-    const { endDate } = this.props.store.app;
+    const { endDate, startDate } = this.props.store.app;
+    const month = format(startDate, "MMMM");
     return (
       <div style={{ marginBottom: "2rem" }}>
         <label>Date:</label>
-        <div><small>Start Date: January 1st</small></div>
+        <div>
+          <small>
+            Start Date: {month} 1st
+          </small>
+        </div>
 
         <DatePicker
           style={{ width: 200 }}

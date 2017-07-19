@@ -57,7 +57,6 @@ export default class AppStore {
     this.fetch("species.json")
       .then(json => {
         this.updateSpecies(json);
-        console.log(json[0]);
         this.setFirstPest(json[0]);
         this.isLoading = false;
       })
@@ -145,7 +144,7 @@ export default class AppStore {
   };
   @computed
   get startDate() {
-    return `${format(this.endDate, "YYYY")}-01-01`;
+    return `${format(this.endDate, "YYYY")}-03-01`;
   }
   @computed
   get startDateYear() {

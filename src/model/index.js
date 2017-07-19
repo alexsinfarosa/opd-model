@@ -210,7 +210,7 @@ export default class Opd extends Component {
               {!isLoading
                 ? <Box>
                     <h3>
-                      Accumulated degree days (base 50°F) from 01/01/{startDateYear}{" "}
+                      Accumulated degree days (base 50°F) from 03/01/{startDateYear}{" "}
                       through {format(endDate, "MM/DD/YYYY")}:{" "}
                       <span style={{ color: "#FF934F" }}>{todayCDD()}</span>
                       {missingDays() !== undefined &&

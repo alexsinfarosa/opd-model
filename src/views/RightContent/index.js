@@ -47,8 +47,8 @@ class RightContent extends Component {
         <MainContent>
           {state.name === "All States" &&
             <h3>
-              Click one of the icons on the map or make a selection from the
-              left panel.
+              Click one of the icons on the map or complete the selection from
+              the left panel.
             </h3>}
           <br />
           {isMap && <Map {...this.props} />}

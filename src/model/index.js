@@ -46,7 +46,9 @@ export default class Opd extends Component {
       endDate,
       startDateYear,
       currentYear,
-      stage
+      stage,
+      isStage,
+      startDate
     } = this.props.store.app;
     const { mobile } = this.props;
 
@@ -104,6 +106,7 @@ export default class Opd extends Component {
       return null;
     };
 
+    const month = format(startDate, "MMMM");
     const columns = [
       {
         title: "Date",
@@ -122,7 +125,7 @@ export default class Opd extends Component {
             key: "dd"
           },
           {
-            title: "Accumulation from January 1st",
+            title: `Accumulation from ${month} 1st`,
             className: "table",
             dataIndex: "cdd",
             key: "cdd"
@@ -159,13 +162,15 @@ export default class Opd extends Component {
         title: "Status",
         className: "table",
         dataIndex: "status",
-        width: "50%"
+        width: "50%",
+        className: "stage"
       },
       {
         title: "Management",
         className: "table",
         dataIndex: "management",
-        width: "50%"
+        width: "50%",
+        className: "stage"
       }
     ];
 
@@ -174,13 +179,15 @@ export default class Opd extends Component {
         title: "Scouting",
         className: "table",
         dataIndex: "scouting",
-        width: "50%"
+        width: "50%",
+        className: "stage"
       },
       {
         title: "Phenological Markers",
         className: "table",
         dataIndex: "phenologicalMarkers",
-        width: "50%"
+        width: "50%",
+        className: "stage"
       }
     ];
 
@@ -188,17 +195,17 @@ export default class Opd extends Component {
       <div>
         {!isLoading &&
           <Flex column mt={2} mb={2}>
-            <Flex>
+            <Flex mb={2}>
               <Box>
                 {!mobile
                   ? <h2>
-                      <i>{specie.informalName}</i> Results for {" "}
+                      <i>{specie.informalName}</i> results for {" "}
                       <span style={{ color: "#FF934F" }}>
                         {station.name}, {state.postalCode}
                       </span>
                     </h2>
                   : <h3>
-                      <i>{specie.informalName}</i> Results for {" "}
+                      <i>{specie.informalName}</i> results for {" "}
                       <span style={{ color: "#FF934F" }}>
                         {station.name}, {state.postalCode}
                       </span>
@@ -206,7 +213,46 @@ export default class Opd extends Component {
               </Box>
             </Flex>
 
-            <Flex mt={1} justify="center" align="baseline">
+            {isStage &&
+              <Flex column>
+                <Flex mt={2} mb={2} justify="center">
+                  <Stage />
+                </Flex>
+                <Flex mt={2} mb={2} justify="center">
+                  The phenological stage above is estimated. Select the actual
+                  stage and the model will ricalculate recommendation.
+                </Flex>
+
+                <Flex justify="center">
+                  <Box mt={2} mb={2} col={12} lg={12} md={12} sm={12}>
+                    <Table
+                      bordered
+                      size={mobile ? "small" : "middle"}
+                      columns={pestAbove}
+                      rowKey={record => record}
+                      loading={ACISData.length === 0}
+                      pagination={false}
+                      dataSource={areRequiredFieldsSet ? stage.slice() : null}
+                    />
+                  </Box>
+                </Flex>
+
+                <Flex justify="center">
+                  <Box mt={2} mb={3} col={12} lg={12} md={12} sm={12}>
+                    <Table
+                      bordered
+                      size={mobile ? "small" : "middle"}
+                      columns={pestBelow}
+                      rowKey={record => record}
+                      loading={ACISData.length === 0}
+                      pagination={false}
+                      dataSource={areRequiredFieldsSet ? stage.slice() : null}
+                    />
+                  </Box>
+                </Flex>
+              </Flex>}
+
+            <Flex mb={2}>
               {!isLoading
                 ? <Box>
                     <h3>
@@ -251,7 +297,7 @@ export default class Opd extends Component {
               </Box>
             </Flex>
 
-            <Flex mt={2} justify="space-between" align="baseline">
+            <Flex mt={2} mb={2} justify="space-between" align="baseline">
               <Box>
                 <a
                   target="_blank"
@@ -274,44 +320,6 @@ export default class Opd extends Component {
                     </CSVButton>
                   </Button>
                 </Box>}
-            </Flex>
-
-            <Flex column>
-              <Flex mt={2} justify="center">
-                <Stage />
-              </Flex>
-              <Flex mt={2} mb={2} justify="center">
-                The phenological stage above is estimated. Select the actual
-                stage and the model will ricalculate recommendation.
-              </Flex>
-
-              <Flex justify="center">
-                <Box mt={2} mb={2} col={12} lg={12} md={12} sm={12}>
-                  <Table
-                    bordered
-                    size={mobile ? "small" : "middle"}
-                    columns={pestAbove}
-                    rowKey={record => record}
-                    loading={ACISData.length === 0}
-                    pagination={false}
-                    dataSource={areRequiredFieldsSet ? stage.slice() : null}
-                  />
-                </Box>
-              </Flex>
-
-              <Flex justify="center">
-                <Box mt={2} mb={2} col={12} lg={12} md={12} sm={12}>
-                  <Table
-                    bordered
-                    size={mobile ? "small" : "middle"}
-                    columns={pestBelow}
-                    rowKey={record => record}
-                    loading={ACISData.length === 0}
-                    pagination={false}
-                    dataSource={areRequiredFieldsSet ? stage.slice() : null}
-                  />
-                </Box>
-              </Flex>
             </Flex>
 
             <Flex mt={2} mb={2}>

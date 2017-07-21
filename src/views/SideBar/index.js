@@ -30,6 +30,12 @@ class SideBar extends Component {
     this.props.store.app.setIsSidebarOpen(false);
   };
 
+  toggleStage = () => {
+    // console.log(`switch to ${checked}`);
+    this.props.store.app.setIsStage();
+    this.props.store.app.setIsSidebarOpen(false);
+  };
+
   toggleGraph = () => {
     // console.log(`switch to ${checked}`);
     this.props.store.app.setIsGraph();
@@ -58,13 +64,19 @@ class SideBar extends Component {
         <Station size={this.props.size} />
         <DatePicker size={this.props.size} />
 
-        <Box mb={2} mt={2}>
+        <Box mt={2} mb={2}>
           <Button size="large" icon="environment-o" onClick={this.toggleMap}>
             {isMap ? "Hide Map" : "Display Map"}
           </Button>
         </Box>
 
-        <Box>
+        <Box mb={2}>
+          <Button size="large" icon="bar-chart" onClick={this.toggleStage}>
+            {isGraph ? "Hide Stage" : "Display Stage"}
+          </Button>
+        </Box>
+
+        <Box mb={2}>
           <Button size="large" icon="bar-chart" onClick={this.toggleGraph}>
             {isGraph ? "Hide Graph" : "Display Graph"}
           </Button>

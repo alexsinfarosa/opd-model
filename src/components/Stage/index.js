@@ -33,7 +33,9 @@ class Stage extends Component {
 
     return (
       <Box>
-        <label>Phenological Stage </label>
+        <label style={{ color: "black", fontSize: ".9rem" }}>
+          Phenological Stage{" "}
+        </label>
         <Select
           name="stage"
           size="large"

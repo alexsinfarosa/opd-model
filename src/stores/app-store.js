@@ -35,6 +35,9 @@ export default class AppStore {
   @observable isGraph = false;
   @action setIsGraph = d => (this.isGraph = !this.isGraph);
 
+  @observable isStage = true;
+  @action setIsStage = d => (this.isStage = !this.isStage);
+
   @observable
   breakpoints = {
     xs: "(max-width: 767px)",

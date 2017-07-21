@@ -25,25 +25,22 @@ import { SideBarContent } from "./styles";
 class SideBar extends Component {
   // toggle Map component
   toggleMap = () => {
-    // console.log(`switch to ${checked}`);
     this.props.store.app.toggleIsMap();
     this.props.store.app.setIsSidebarOpen(false);
   };
 
   toggleStage = () => {
-    // console.log(`switch to ${checked}`);
     this.props.store.app.setIsStage();
     this.props.store.app.setIsSidebarOpen(false);
   };
 
   toggleGraph = () => {
-    // console.log(`switch to ${checked}`);
     this.props.store.app.setIsGraph();
     this.props.store.app.setIsSidebarOpen(false);
   };
 
   render() {
-    const { isGraph, isMap } = this.props.store.app;
+    const { isGraph, isMap, isStage } = this.props.store.app;
     return (
       <SideBarContent>
         <Box mb={2} style={{ textAlign: "center", letterSpacing: "1px" }}>
@@ -72,7 +69,7 @@ class SideBar extends Component {
 
         <Box mb={2}>
           <Button size="large" icon="bar-chart" onClick={this.toggleStage}>
-            {isGraph ? "Hide Stage" : "Display Stage"}
+            {isStage ? "Hide Stage" : "Display Stage"}
           </Button>
         </Box>
 

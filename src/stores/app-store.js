@@ -38,6 +38,9 @@ export default class AppStore {
   @observable isStage = true;
   @action setIsStage = d => (this.isStage = !this.isStage);
 
+  onScrollDown = () => window.scroll(0, 1000);
+  onScrollUp = () => window.scroll(0, 0);
+
   @observable
   breakpoints = {
     xs: "(max-width: 767px)",

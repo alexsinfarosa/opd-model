@@ -12,11 +12,10 @@ import { Box } from "reflexbox";
 @inject("store")
 @observer
 class Stage extends Component {
-  constructor(props) {
-    super(props);
-
+  componentWillMounth() {
     this.props.store.app.setStage();
   }
+
   handleChange = stageName => {
     this.props.store.app.updateStage(stageName);
   };

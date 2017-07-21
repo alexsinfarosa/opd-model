@@ -248,7 +248,7 @@
         "biologicalControl": "Lady beetles, lacewings and parasitic wasps.  Pesticide use may affect beneficial insects."
       },
       {
-        "name": "Unknown...",
+        "name": "Crawlers (phase 1)",
         "status": "Crawlers are produced over a long period.",
         "ddlo": 121,
         "ddhi": 359,
@@ -258,7 +258,7 @@
         "biologicalControl": "Lady beetles, lacewings and parasitic wasps.  "
       },
       {
-        "name": "Crawler",
+        "name": "Crawlers (phase 2)",
         "status": "Crawlers are produced over a long period.",
         "ddlo": 360,
         "ddhi": 699,

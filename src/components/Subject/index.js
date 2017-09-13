@@ -40,9 +40,21 @@ export default class Specie extends Component {
 
     const pest = toJS(specie);
 
-    return <div style={{ marginBottom: "2rem" }}>
+    return (
+      <div style={{ marginBottom: "2rem" }}>
         <label>Pest:</label>
-        <Cascader autoFocus expandTrigger="hover" allowClear={false} size="large" options={options} onChange={this.handleChange} defaultValue={[pest.subgroup, pest.informalName]} style={{ width: 200 }} placeholder="Select Pest" />
-      </div>;
+        <Cascader
+          autoFocus
+          expandTrigger="hover"
+          allowClear={false}
+          size="large"
+          options={options}
+          onChange={this.handleChange}
+          defaultValue={[pest.subgroup, pest.informalName]}
+          style={{ width: 200 }}
+          placeholder="Select Pest"
+        />
+      </div>
+    );
   }
 }

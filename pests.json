@@ -1,0 +1,266 @@
+[ {
+  "expand" : [ {
+    "biologicalControl" : "None",
+    "ddhi" : "6",
+    "ddlo" : "0",
+    "id" : "autovalue-1501496089345",
+    "management" : "No management possible when adults are ovewintering",
+    "name" : "Overwintering adults",
+    "phenologicalMarkers" : "None",
+    "scouting" : "None",
+    "status" : "Adults overwinter in litter under tree"
+  }, {
+    "biologicalControl" : "None",
+    "ddhi" : "58",
+    "ddlo" : "7",
+    "id" : "autovalue-1501501237764",
+    "management" : "Begin trapping. Apply pesticides within 7 days from first trap catch. Apply pesticide applications when day temperatures reach 50F. Apply pesticide to leader and upper branches only.",
+    "name" : "Active adults/eggs",
+    "phenologicalMarkers" : "Silver maple blooming",
+    "scouting" : "Scout for feeding wounds on leaders, sap dripping. Use Tedders traps to monitor for adults. Place in areas of previous white pine weevil infestation.  Soil temperature at 2 inches of 50F indicates adult emergence.",
+    "status" : "Adults emerge from litter, fly or crawl to tree terminals, feed and begin to lay eggs"
+  }, {
+    "biologicalControl" : "None",
+    "ddhi" : "1000",
+    "ddlo" : "59",
+    "id" : "autovalue-1501501504099",
+    "management" : "Prune out and destroy drooping leaders ('shepherd's crooks'). Cut below bark discoloration.",
+    "name" : "Eggs/larvae",
+    "phenologicalMarkers" : "Before mockorange or mountain laurel finish blooming",
+    "scouting" : "Scout for feeding wounds on leaders, sap dripping. Use Tedders traps to monitor for adults. Look for drooping leaders",
+    "status" : "Eggs laid in leaders and branch whorls just below, larvae feed between bark and wood"
+  }, {
+    "biologicalControl" : "None",
+    "ddhi" : "3500",
+    "ddlo" : "1001",
+    "id" : "autovalue-1501501568025",
+    "management" : "No management possible once adults emerge",
+    "name" : "Adult emergence",
+    "phenologicalMarkers" : "None",
+    "scouting" : "None",
+    "status" : "Adults emerge from leaders, feed and shelter in litter under trees"
+  } ],
+  "formalName" : "Pissodes strobi",
+  "hosts" : "spruce, pine, Douglas-fir, fir",
+  "id" : "autovalue-1501495180097",
+  "informalName" : "White pine weevil",
+  "subgroup" : "Moths"
+}, {
+  "expand" : [ {
+    "biologicalControl" : "None",
+    "ddhi" : "6",
+    "ddlo" : "0",
+    "id" : "autovalue-1501501682143",
+    "management" : "Manage surrounding area to encourage beneficial insects",
+    "name" : "Egg (phase 1)",
+    "phenologicalMarkers" : "None",
+    "scouting" : "None",
+    "status" : "Overwinters as egg under bud scales and at base of needles"
+  }, {
+    "biologicalControl" : "Predator mites, lacewing larvae, lady beeltes, hover fly larvae",
+    "ddhi" : "121",
+    "ddlo" : "7",
+    "id" : "autovalue-1501501749911",
+    "management" : "Dormant oil spray",
+    "name" : "Egg (phase 2)",
+    "phenologicalMarkers" : "Pussy willow blooming",
+    "scouting" : "Scout older branches before bud break on trees with history of spruce spider mites, particularly on south side of tree, for red roundish eggs",
+    "status" : "Overwintering eggs hatch"
+  }, {
+    "biologicalControl" : "Predator mites, lacewing larvae, lady beeltes, hover fly larvae",
+    "ddhi" : "191",
+    "ddlo" : "122",
+    "id" : "autovalue-1501501829638",
+    "management" : "None",
+    "name" : "Nymph/adult (phase 1)",
+    "phenologicalMarkers" : "Star and saucer magnolia",
+    "scouting" : "Scout for small yellow spots on needles on interior lower branches.  May become rusty or bronzed. Evaluate population by tapping branches over light colored surface, dark green when squashed. Webbing with severe infestation. Also scout for beneficial insects.",
+    "status" : "Nymphs and adults active, many generations per season"
+  }, {
+    "biologicalControl" : "Predator mites, lacewing larvae, lady beeltes, hover fly larvae",
+    "ddhi" : "363",
+    "ddlo" : "191",
+    "id" : "autovalue-1501501899839",
+    "management" : "Pesticide application if necessary. Threshold is 10 mites per branch tap. Pesticide application may affect beneficial insects and mites.",
+    "name" : "Nymph/adult (phase 2)",
+    "phenologicalMarkers" : "Redbud blooming",
+    "scouting" : "Scout for small yellow spots on needles on interior lower branches.  May become rusty or bronzed. Evaluate population by tapping branches over light colored surface, dark green when squashed. Webbing with severe infestation. Also scout for beneficial insects.",
+    "status" : "Peak activity for nymphs and adults "
+  }, {
+    "biologicalControl" : "Predatory mites",
+    "ddhi" : "2375",
+    "ddlo" : "364",
+    "id" : "autovalue-1501501968607",
+    "management" : "No pesticide applications as populations decline at temperatures above 80-90 F",
+    "name" : "Nymph/adult (phase 3)",
+    "phenologicalMarkers" : "None",
+    "scouting" : "Scout for small yellow spots on needles on interior lower branches.  May become rusty or bronzed. Evaluate population by tapping branches over light colored surface, dark green when squashed. Webbing with severe infestation. Also scout for beneficial insects.",
+    "status" : "Nymphs and adults less active"
+  }, {
+    "biologicalControl" : "Predator mites, lacewing larvae, lady beeltes, hover fly larvae",
+    "ddhi" : "2806",
+    "ddlo" : "2376",
+    "id" : "autovalue-1501502050619",
+    "management" : "Pesticide application if necessary. Threshold is 10 mites per branch tap. Pesticide application may affect beneficial insects and mites.",
+    "name" : "Nymph/adult (phase 4)",
+    "phenologicalMarkers" : "Witch hazel, sweet autumn clematis blooming, Arrowood viburnum fruit in color",
+    "scouting" : "Scout for small yellow spots on needles on interior lower branches.  May become rusty or bronzed. Evaluate population by tapping branches over light colored surface, dark green when squashed. Webbing with severe infestation. Also scout for beneficial insects.",
+    "status" : "Peak activity for nymphs and adults "
+  }, {
+    "biologicalControl" : "None",
+    "ddhi" : "3500",
+    "ddlo" : "2807",
+    "id" : "autovalue-1501502107056",
+    "management" : "None",
+    "name" : "Adult/egg",
+    "phenologicalMarkers" : "None",
+    "scouting" : "Mark trees for scouting in spring",
+    "status" : "Overwintering eggs laid"
+  } ],
+  "formalName" : "Oligonychus ununguis",
+  "hosts" : "All conifers, especially spruce and fir",
+  "id" : "autovalue-1501501610429",
+  "informalName" : "Spruce spider mite",
+  "subgroup" : "Aphids"
+}, {
+  "expand" : [ {
+    "biologicalControl" : "None",
+    "ddhi" : "29",
+    "ddlo" : "0",
+    "id" : "autovalue-1501502230879",
+    "management" : "Do not apply nitrogen to infested trees before bud break. If severe issues with balsam twig aphid, plant species with later bud break.  Canaan is later than Fraser which is later than balsam, in general",
+    "name" : "Eggs",
+    "phenologicalMarkers" : "None",
+    "scouting" : "Scout for overwintering eggs before buds swell",
+    "status" : "Overwinters as egg"
+  }, {
+    "biologicalControl" : "Predators include ladybeetle adults and larvae, lacewings, ants, hover fly larvae, syrphid flies and yellow jackets.  Pesticide applications may affect beneficial insects.",
+    "ddhi" : "100",
+    "ddlo" : "30",
+    "id" : "autovalue-1501502359165",
+    "management" : "Pesticide application if necessary.  Threshold is 3 aphids per tree. Control is most important in last 2 years before harvest, unless damage is excessive prior to that.  Apply pesticide on warm day before budcap loosens.",
+    "name" : "Stem mothers/nymphs",
+    "phenologicalMarkers" : "Buds swelling and just opening. Silver maple, red maple",
+    "scouting" : "Evaluate population by tapping branches over dark colored surface.  Also scout for beneficial insects and mites.",
+    "status" : "Overwintering eggs hatch to stem mothers, which produce nymphs"
+  }, {
+    "biologicalControl" : "Predators include ladybeetle adults and larvae, lacewings, ants, hover fly larvae, syrphid flies and yellow jackets.  Pesticide applications may affect beneficial insects.",
+    "ddhi" : "2499",
+    "ddlo" : "101",
+    "id" : "autovalue-1501502418274",
+    "management" : "Pick and destroy young cones where aphids may hide.",
+    "name" : "Nymphs/adults",
+    "phenologicalMarkers" : "None",
+    "scouting" : "Scout for twisted needles, honeydew (indicated by presence of bees, wasps and ants) and insects to determine trees to treat next year.",
+    "status" : "3-4 generation per year. Nymphs and adults feed on tree but only feeding during needle development causes twisting"
+  }, {
+    "biologicalControl" : "None",
+    "ddhi" : "3500",
+    "ddlo" : "2500",
+    "id" : "autovalue-1501502468806",
+    "management" : "If severe issues with balsam twig aphid, plant species with later bud break.  Canaan is later than Fraser which is later than balsam, in general",
+    "name" : "Winged adults",
+    "phenologicalMarkers" : "None",
+    "scouting" : "None",
+    "status" : "Lay overwintering eggs"
+  } ],
+  "formalName" : "Mindarus abietinus",
+  "hosts" : "Fir",
+  "id" : "autovalue-1501502169385",
+  "informalName" : "Balsam twig aphid",
+  "subgroup" : "Mites"
+}, {
+  "expand" : [ {
+    "biologicalControl" : "None",
+    "ddhi" : "199",
+    "ddlo" : "0",
+    "id" : "autovalue-1501502562547",
+    "management" : "Plant varieties with later bud break. Remove overgrown trees from the plantation as damage can be more severe on older trees.",
+    "name" : "Overwinter as larvae",
+    "phenologicalMarkers" : "None",
+    "scouting" : "Place at least 3 traps per field on the north side of previously infested trees before the daily temperature reaches 60F for several days. Check traps daily and continue until no midges are caught for several days.",
+    "status" : "Larvae pupate in the soil beneath infested trees"
+  }, {
+    "biologicalControl" : "Parasitic chalcid wasps are tiny.  They may be affected by pesticide applications.",
+    "ddhi" : "400",
+    "ddlo" : "200",
+    "id" : "autovalue-1501502619337",
+    "management" : "Pesticide application is based on collection of adults in traps as chemicals are only effective against adults. The first application should be made as soon as first adults are noted.  A second application may be applied if adults continue to emerge.",
+    "name" : "Adult",
+    "phenologicalMarkers" : "Redbud flowering, Tatarian honeysuckle flowering",
+    "scouting" : "Check traps daily and continue until no midges are caught for several days.",
+    "status" : "Adult midges emerge from the soil beneath trees."
+  }, {
+    "biologicalControl" : "Parasitic chalcid wasps are tiny.",
+    "ddhi" : "3500",
+    "ddlo" : "401",
+    "id" : "autovalue-1501502669853",
+    "management" : "Remove heavily infested trees before larvae leave the needles in late fall.  Plant varieties with later bud break. Remove overgrown trees from the plantation as damage can be more severe on older trees.",
+    "name" : "Larvae",
+    "phenologicalMarkers" : "None",
+    "scouting" : "August - Scout for swollen galls on needles.  Needles may yellow and bend at gall. Mark trees for traps in the spring.",
+    "status" : "Eggs hatch to larvae which bore into, and feed on, needles, causing small swollen galls"
+  } ],
+  "formalName" : "Contarinia pseudotsugae",
+  "hosts" : "Douglas-fir",
+  "id" : "autovalue-1501502510813",
+  "informalName" : "Douglas fir needle midge",
+  "subgroup" : "Beetles"
+}, {
+  "expand" : [ {
+    "biologicalControl" : "None",
+    "ddhi" : "6",
+    "ddlo" : "0",
+    "id" : "autovalue-1501502757416",
+    "management" : "Remove hemlocks near plantation that can act as reservoirs. Space trees at planting to minimize movement from tree to tree. Remove weeds to expose lower branches to allow scouting and coverage with pesticides.  Butt pruning can remove heavily infested lower branches.Limit preseason use of nitrogen fertilizers as they increase survival and rate of development.",
+    "name" : "Adult",
+    "phenologicalMarkers" : "None",
+    "scouting" : "Scout underside of needles for scale.  Mark trees for later scouting for crawlers. If only a few trees are infested, consider removing them - tarped so scale is not spread.  Yellos sticky cards can be used to trap males to indicate when eggs are being laid.",
+    "status" : "Overwinter as various stages, including adults"
+  }, {
+    "biologicalControl" : "Lady beetles, lacewings and parasitic wasps.  Pesticide use may affect beneficial insects.",
+    "ddhi" : "120",
+    "ddlo" : "7",
+    "id" : "autovalue-1501502819358",
+    "management" : "Dormant  treatment if necessary.",
+    "name" : "Adults/egg/crawler",
+    "phenologicalMarkers" : "Silver maple blooming",
+    "scouting" : "Scout trees for crawler emergence. No specific thresholds have been determined.",
+    "status" : "Adults produce eggs that hatch to crawlers."
+  }, {
+    "biologicalControl" : "Lady beetles, lacewings and parasitic wasps.",
+    "ddhi" : "359",
+    "ddlo" : "121",
+    "id" : "autovalue-1501502874045",
+    "management" : "None",
+    "name" : "Unknown",
+    "phenologicalMarkers" : "Japanese quince blooming.",
+    "scouting" : "Scout trees for crawler emergence. No specific thresholds have been determined.",
+    "status" : "Crawlers are produced over a long period."
+  }, {
+    "biologicalControl" : "Lady beetles, lacewings and parasitic wasps.  Pesticide use may affect beneficial insects.",
+    "ddhi" : "699",
+    "ddlo" : "360",
+    "id" : "autovalue-1501502928933",
+    "management" : "Pesticide applications if necessary.  Clean equipment between fields to prevent spread and always work from least infested to most infested areas.",
+    "name" : "Crawler",
+    "phenologicalMarkers" : "Tatarian honeysuckle, beauty bush, ninebark blooming",
+    "scouting" : "Scout trees for crawler emergence. No specific thresholds have been determined.",
+    "status" : "Crawlers are produced over a long period."
+  }, {
+    "biologicalControl" : "None",
+    "ddhi" : "3500",
+    "ddlo" : "700",
+    "id" : "autovalue-1501502973005",
+    "management" : "Do not fertilize infested trees.",
+    "name" : "Adult",
+    "phenologicalMarkers" : "None",
+    "scouting" : "Spruce - scout for brown galls to mark trees to scout. Douglas fir - Scout for egg masses under waxy mass on outer growth.",
+    "status" : "Ovewintering stages develop."
+  } ],
+  "formalName" : "Fiorina externa",
+  "hosts" : "Fir, sometimes spruce, Douglas fir, pine",
+  "id" : "autovalue-1501502698570",
+  "informalName" : "Elongate hemlock scale",
+  "subgroup" : "Other"
+} ]

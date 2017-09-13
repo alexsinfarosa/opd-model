@@ -68,12 +68,11 @@ export default class Opd extends Component {
     const forecastText = date => {
       return (
         <Flex justify="center" align="center" column>
-          <Value>
-            {format(date, "MMM D")}
-          </Value>
+          <Value>{format(date, "MMM D")}</Value>
           {startDateYear === currentYear &&
-            isAfter(date, endDate) &&
-            <Info style={{ color: "red" }}>Forecast</Info>}
+          isAfter(date, endDate) && (
+            <Info style={{ color: "red" }}>Forecast</Info>
+          )}
         </Flex>
       );
     };
@@ -84,21 +83,19 @@ export default class Opd extends Component {
           <Flex style={{ fontSize: ".6rem" }} column>
             <Box col={12} lg={6} md={6} sm={12}>
               <Box col={12} lg={12} md={12} sm={12}>
-                {record.missingDays.length > 1
-                  ? <div>
-                      No data available for the following{" "}
-                      {record.cumulativeMissingDays} dates:{" "}
-                    </div>
-                  : <div>No data available for the following date:</div>}
+                {record.missingDays.length > 1 ? (
+                  <div>
+                    No data available for the following{" "}
+                    {record.cumulativeMissingDays} dates:{" "}
+                  </div>
+                ) : (
+                  <div>No data available for the following date:</div>
+                )}
               </Box>
             </Box>
             <br />
             <Box col={12} lg={6} md={6} sm={12}>
-              {record.missingDays.map((date, i) =>
-                <div key={i}>
-                  - {date}
-                </div>
-              )}
+              {record.missingDays.map((date, i) => <div key={i}>- {date}</div>)}
             </Box>
           </Flex>
         );
@@ -160,14 +157,12 @@ export default class Opd extends Component {
     const pestAbove = [
       {
         title: "Status",
-        className: "table",
         dataIndex: "status",
         width: "50%",
         className: "stage"
       },
       {
         title: "Management",
-        className: "table",
         dataIndex: "management",
         width: "50%",
         className: "stage"
@@ -177,14 +172,12 @@ export default class Opd extends Component {
     const pestBelow = [
       {
         title: "Scouting",
-        className: "table",
         dataIndex: "scouting",
         width: "50%",
         className: "stage"
       },
       {
         title: "Phenological Markers",
-        className: "table",
         dataIndex: "phenologicalMarkers",
         width: "50%",
         className: "stage"
@@ -193,27 +186,29 @@ export default class Opd extends Component {
 
     return (
       <div>
-        {!isLoading &&
+        {!isLoading && (
           <Flex column mt={2} mb={2}>
             <Flex mb={2}>
               <Box>
-                {!mobile
-                  ? <h2>
-                      <i>{specie.informalName}</i> results for {" "}
-                      <span style={{ color: "#FF934F" }}>
-                        {station.name}, {state.postalCode}
-                      </span>
-                    </h2>
-                  : <h3>
-                      <i>{specie.informalName}</i> results for {" "}
-                      <span style={{ color: "#FF934F" }}>
-                        {station.name}, {state.postalCode}
-                      </span>
-                    </h3>}
+                {!mobile ? (
+                  <h2>
+                    <i>{specie.informalName}</i> results for {" "}
+                    <span style={{ color: "#FF934F" }}>
+                      {station.name}, {state.postalCode}
+                    </span>
+                  </h2>
+                ) : (
+                  <h3>
+                    <i>{specie.informalName}</i> results for {" "}
+                    <span style={{ color: "#FF934F" }}>
+                      {station.name}, {state.postalCode}
+                    </span>
+                  </h3>
+                )}
               </Box>
             </Flex>
 
-            {isStage &&
+            {isStage && (
               <Flex column>
                 <Flex mt={2} mb={2} justify="center">
                   <Stage />
@@ -250,50 +245,54 @@ export default class Opd extends Component {
                     />
                   </Box>
                 </Flex>
-              </Flex>}
+              </Flex>
+            )}
 
             <Flex mb={2}>
-              {!isLoading
-                ? <Box>
-                    <h3>
-                      Accumulated degree days (base 50°F) from 03/01/{startDateYear}{" "}
-                      through {format(endDate, "MM/DD/YYYY")}:{" "}
-                      <span style={{ color: "#FF934F" }}>{todayCDD()}</span>
-                      {missingDays() !== undefined &&
-                        <small>
-                          {" "}({` ${missingDays()}`} days missing )
-                        </small>}
-                    </h3>
-                  </Box>
-                : <Spin />}
+              {!isLoading ? (
+                <Box>
+                  <h3>
+                    Accumulated degree days (base 50°F) from 03/01/{startDateYear}{" "}
+                    through {format(endDate, "MM/DD/YYYY")}:{" "}
+                    <span style={{ color: "#FF934F" }}>{todayCDD()}</span>
+                    {missingDays() !== undefined && (
+                      <small> ({` ${missingDays()}`} days missing )</small>
+                    )}
+                  </h3>
+                </Box>
+              ) : (
+                <Spin />
+              )}
             </Flex>
 
             <Flex justify="center" column align="center">
               <Box mt={1} col={12} lg={12} md={12} sm={12}>
-                {displayPlusButton
-                  ? <Table
-                      bordered
-                      size={mobile ? "small" : "middle"}
-                      columns={columns}
-                      rowKey={record => record.dateTable}
-                      loading={ACISData.length === 0}
-                      pagination={false}
-                      dataSource={
-                        areRequiredFieldsSet ? takeRight(ACISData, 8) : null
-                      }
-                      expandedRowRender={record => description(record)}
-                    />
-                  : <Table
-                      bordered
-                      size={mobile ? "small" : "middle"}
-                      columns={columns}
-                      rowKey={record => record.dateTable}
-                      loading={ACISData.length === 0}
-                      pagination={false}
-                      dataSource={
-                        areRequiredFieldsSet ? takeRight(ACISData, 8) : null
-                      }
-                    />}
+                {displayPlusButton ? (
+                  <Table
+                    bordered
+                    size={mobile ? "small" : "middle"}
+                    columns={columns}
+                    rowKey={record => record.dateTable}
+                    loading={ACISData.length === 0}
+                    pagination={false}
+                    dataSource={
+                      areRequiredFieldsSet ? takeRight(ACISData, 8) : null
+                    }
+                    expandedRowRender={record => description(record)}
+                  />
+                ) : (
+                  <Table
+                    bordered
+                    size={mobile ? "small" : "middle"}
+                    columns={columns}
+                    rowKey={record => record.dateTable}
+                    loading={ACISData.length === 0}
+                    pagination={false}
+                    dataSource={
+                      areRequiredFieldsSet ? takeRight(ACISData, 8) : null
+                    }
+                  />
+                )}
               </Box>
             </Flex>
 
@@ -308,7 +307,7 @@ export default class Opd extends Component {
                 </a>
               </Box>
 
-              {!mobile &&
+              {!mobile && (
                 <Box ml={2}>
                   <Button type="secondary" icon="download">
                     <CSVButton
@@ -319,7 +318,8 @@ export default class Opd extends Component {
                       Download CSV
                     </CSVButton>
                   </Button>
-                </Box>}
+                </Box>
+              )}
             </Flex>
 
             <Flex mt={2} mb={2}>
@@ -336,7 +336,8 @@ export default class Opd extends Component {
               </i>
             </Flex>
             {isGraph && <Graph />}
-          </Flex>}
+          </Flex>
+        )}
       </div>
     );
   }

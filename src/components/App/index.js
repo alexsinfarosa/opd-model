@@ -4,7 +4,6 @@ import { when } from "mobx";
 
 // components
 import Home from "views/Home";
-import Test from "components/Test";
 
 // api
 import { fetchAllStations } from "utils/api";
@@ -30,7 +29,6 @@ class App extends Component {
     return (
       <div>
         <Home />
-        <Test />
       </div>
     );
   }

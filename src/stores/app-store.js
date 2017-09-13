@@ -60,8 +60,9 @@ export default class AppStore {
   @action
   loadSpecies() {
     this.isLoading = true;
-    this.fetch("species.json")
+    this.fetch("pests.json")
       .then(json => {
+        // console.log(json);
         this.updateSpecies(json);
         this.setFirstPest(json[0]);
         this.isLoading = false;
@@ -192,7 +193,7 @@ export default class AppStore {
   // Stage ------------------------------------------------------------------
   @computed
   get stages() {
-    return this.specie.stages;
+    return this.specie.expand;
   }
 
   @observable stage = [];
@@ -200,11 +201,11 @@ export default class AppStore {
   @action
   setStage() {
     this.stage.clear();
-    const { stages } = this.specie;
+    const { expand } = this.specie;
     const selectedDate = this.ACISData.find(o => o.date === this.endDate);
     if (selectedDate) {
       const cdd = selectedDate.cdd;
-      stages.slice().forEach(stage => {
+      expand.slice().forEach(stage => {
         if (cdd >= stage.ddlo && cdd <= stage.ddhi) {
           this.stage.push(stage);
         }
@@ -215,8 +216,8 @@ export default class AppStore {
   @action
   updateStage = d => {
     this.stage.clear();
-    const { stages } = this.specie;
-    const userSelectedStage = stages.slice().find(stage => stage.name === d);
+    const { expand } = this.specie;
+    const userSelectedStage = expand.slice().find(stage => stage.name === d);
     this.stage = [userSelectedStage];
   };
 }

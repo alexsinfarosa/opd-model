@@ -2,16 +2,15 @@ import React, { Component } from "react";
 import { inject, observer } from "mobx-react";
 import { toJS } from "mobx";
 
-import Select from "antd/lib/select";
-import "antd/lib/select/style/css";
-const Option = Select.Option;
+import Cascader from "antd/lib/cascader";
+import "antd/lib/cascader/style/css";
 
 @inject("store")
 @observer
 export default class Specie extends Component {
   handleChange = value => {
     const mobile = this.props.size;
-    this.props.store.app.setSpecie(value);
+    this.props.store.app.setSpecie(value[1]);
 
     if (this.props.store.app.areRequiredFieldsSet) {
       this.props.store.app.setIsMap(false);
@@ -25,29 +24,25 @@ export default class Specie extends Component {
 
   render() {
     const { specie, species } = this.props.store.app;
-    const pest = toJS(specie);
-    const speciesList = species.map((specie, i) => {
-      return (
-        <Option key={i} value={specie.informalName}>
-          {specie.informalName}
-        </Option>
-      );
+
+    const options = species.map(p => {
+      return {
+        value: p.subgroup,
+        label: p.subgroup,
+        children: [
+          {
+            value: p.informalName,
+            label: p.informalName
+          }
+        ]
+      };
     });
-    return (
-      <div style={{ marginBottom: "2rem" }}>
+
+    const pest = toJS(specie);
+
+    return <div style={{ marginBottom: "2rem" }}>
         <label>Pest:</label>
-        <Select
-          name="specie"
-          size="large"
-          autoFocus
-          value={pest.informalName}
-          placeholder="Select Pest"
-          style={{ width: 200 }}
-          onChange={this.handleChange}
-        >
-          {speciesList}
-        </Select>
-      </div>
-    );
+        <Cascader autoFocus expandTrigger="hover" allowClear={false} size="large" options={options} onChange={this.handleChange} defaultValue={[pest.subgroup, pest.informalName]} style={{ width: 200 }} placeholder="Select Pest" />
+      </div>;
   }
 }

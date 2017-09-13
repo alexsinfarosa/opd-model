@@ -44,7 +44,7 @@
   "hosts" : "spruce, pine, Douglas-fir, fir",
   "id" : "autovalue-1501495180097",
   "informalName" : "White pine weevil",
-  "subgroup" : "Moths"
+  "subgroup" : "Weevil"
 }, {
   "expand" : [ {
     "biologicalControl" : "None",
@@ -121,7 +121,7 @@
   "hosts" : "All conifers, especially spruce and fir",
   "id" : "autovalue-1501501610429",
   "informalName" : "Spruce spider mite",
-  "subgroup" : "Aphids"
+  "subgroup" : "Mites"
 }, {
   "expand" : [ {
     "biologicalControl" : "None",
@@ -168,7 +168,7 @@
   "hosts" : "Fir",
   "id" : "autovalue-1501502169385",
   "informalName" : "Balsam twig aphid",
-  "subgroup" : "Mites"
+  "subgroup" : "Aphids"
 }, {
   "expand" : [ {
     "biologicalControl" : "None",
@@ -205,7 +205,7 @@
   "hosts" : "Douglas-fir",
   "id" : "autovalue-1501502510813",
   "informalName" : "Douglas fir needle midge",
-  "subgroup" : "Beetles"
+  "subgroup" : "Midges"
 }, {
   "expand" : [ {
     "biologicalControl" : "None",
@@ -262,5 +262,73 @@
   "hosts" : "Fir, sometimes spruce, Douglas fir, pine",
   "id" : "autovalue-1501502698570",
   "informalName" : "Elongate hemlock scale",
-  "subgroup" : "Other"
+  "subgroup" : "Scales"
+}, {
+  "expand" : [ {
+    "biologicalControl" : "",
+    "ddhi" : 0,
+    "ddlo" : 0,
+    "id" : 1505306463953,
+    "management" : "",
+    "name" : "",
+    "phenologicalMarkers" : "",
+    "scouting" : "",
+    "status" : ""
+  } ],
+  "formalName" : "xxx",
+  "hosts" : "xxx",
+  "id" : "autovalue-1505306463953",
+  "informalName" : "Balsam woolly",
+  "subgroup" : "Adelgids"
+}, {
+  "expand" : [ {
+    "biologicalControl" : "",
+    "ddhi" : 0,
+    "ddlo" : 0,
+    "id" : 1505306711534,
+    "management" : "",
+    "name" : "",
+    "phenologicalMarkers" : "",
+    "scouting" : "",
+    "status" : ""
+  } ],
+  "formalName" : "xxx",
+  "hosts" : "xxx",
+  "id" : "autovalue-1505306711534",
+  "informalName" : "Bronze birch",
+  "subgroup" : "Beetles, Borers"
+}, {
+  "expand" : [ {
+    "biologicalControl" : "",
+    "ddhi" : 0,
+    "ddlo" : 0,
+    "id" : 1505306764874,
+    "management" : "",
+    "name" : "",
+    "phenologicalMarkers" : "",
+    "scouting" : "",
+    "status" : ""
+  } ],
+  "formalName" : "xxx",
+  "hosts" : "xxx",
+  "id" : "autovalue-1505306764874",
+  "informalName" : "Boxwood",
+  "subgroup" : "Fly, Leafminers"
+}, {
+  "expand" : [ {
+    "biologicalControl" : "",
+    "ddhi" : 0,
+    "ddlo" : 0,
+    "id" : 1505306802760,
+    "management" : "",
+    "name" : "",
+    "phenologicalMarkers" : "",
+    "scouting" : "",
+    "status" : ""
+  } ],
+  "formalName" : "xxx",
+  "hosts" : "xxx",
+  "id" : "autovalue-1505306802760",
+  "informalName" : "Apple blotch",
+  "subgroup" : "Leafminers, Moth"
 } ]

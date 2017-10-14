@@ -5,6 +5,8 @@ import { toJS } from "mobx";
 import Cascader from "antd/lib/cascader";
 import "antd/lib/cascader/style/css";
 
+import "styles/shared.styl";
+
 @inject("store")
 @observer
 export default class Specie extends Component {
